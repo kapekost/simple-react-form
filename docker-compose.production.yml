@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  mongodb_container:
+    image: mongo:latest
+    container_name: formmongo
+    env_file:
+      - ./server/.env.production
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+  server:
+    container_name: reactproject
+    image: reactproject:production
+    env_file:
+      - ./server/.env.production
+    environment:
+      - NODE_ENV=production
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    ports:
+      - 8080:8080
+volumes:
+  mongodb_data_container:

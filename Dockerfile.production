@@ -1,0 +1,20 @@
+# build environment
+FROM node:13.12.0-alpine as build-client
+WORKDIR /app
+ENV CI=false
+ENV PATH /app/node_modules/.bin:$PATH
+COPY ./webclient/package*.json /app/
+RUN yarn install --frozen-lockfile
+
+COPY ./webclient /app/
+RUN yarn build
+
+FROM node:13.12.0-alpine
+WORKDIR /app
+COPY --from=build-client /app/build /app/public
+ENV PATH ./app/node_modules/.bin:$PATH
+COPY ./server/package*.json /app/
+RUN yarn install  --frozen-lockfile
+COPY ./server /app/
+
+CMD ["yarn", "start"]

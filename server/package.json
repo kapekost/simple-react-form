@@ -1,0 +1,27 @@
+{
+  "name": "react-server",
+  "version": "1.0.0",
+  "description": "rest server in nodejs",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test/",
+    "start": "node src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "blueimp-md5": "^2.16.0",
+    "chai": "^4.2.0",
+    "dotenv": "^8.2.0",
+    "mocha": "^8.0.1",
+    "moment": "^2.27.0",
+    "mongodb": "^3.5.9",
+    "restify": "^8.5.1",
+    "restify-clients": "^2.6.9",
+    "restify-cors-middleware": "^1.1.1",
+    "uuid": "^8.2.0"
+  }
+}

@@ -1,0 +1,13 @@
+server/node_modules
+server/.dockerignore
+server/Dockerfile
+
+webclient/node_modules
+webclient/.dockerignore
+webclient/Dockerfile
+docker-compose*.yml
+
+Dockerfile*
+
+npm-debug
+.git
