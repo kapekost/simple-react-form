@@ -36,16 +36,14 @@ module.exports = class Storage {
 
   /**
    * Get all the questions
-   * @returns {Array}
+   * @returns {Promise<Array>}
    */
   getQuestions() {
-    const questions = this.db.collection("questions").find().toArray();
-    console.log(questions);
-    return questions;
+    return this.db.collection("questions").find().toArray();
   }
   /**
    * Get all the Answers
-   * @returns {Array} Answers
+   * @returns {Promise<Array>} Answers
    */
   getAnswers() {
     //maybe better to hash the email, and use it as index
@@ -59,7 +57,7 @@ module.exports = class Storage {
   /**
    * Stores the Array of answers
    * use the md5 of the emails to create the unique identifier
-   * @param {Array} data
+   * @param {Promise<Array>} data
    */
   setAnswers(data) {
     const id = md5(data.email.value);

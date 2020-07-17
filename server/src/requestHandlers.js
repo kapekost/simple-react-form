@@ -28,7 +28,6 @@ module.exports = class RequestHandlers {
       });
   };
   setAnswers = (req, res, next) => {
-    console.log(req.body);
     this.storage.setAnswers({ ...req.body });
     res.send(200);
     next();
