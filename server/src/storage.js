@@ -15,6 +15,7 @@ module.exports = class Storage {
       MONGO_INITDB_DATABASE,
       MONGO_URI: `mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}?retryWrites=true&w=majority`,
     };
+    console.log(this.config);
     this.client = new MongoClient(this.config.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -38,7 +39,9 @@ module.exports = class Storage {
    * @returns {Array}
    */
   getQuestions() {
-    return this.db.collection("questions").find().toArray();
+    const questions = this.db.collection("questions").find().toArray();
+    console.log(questions);
+    return questions;
   }
   /**
    * Get all the Answers
@@ -72,7 +75,7 @@ module.exports = class Storage {
         console.log(err);
         return;
       }
-      console.log("collections", info.length);
+      console.log("collections", info.length, info);
       if (info.length === 0) {
         this.seedData();
       }
