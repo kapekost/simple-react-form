@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Simple-react-form by kapekost</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Simple-react-form</h1>
+        <p>A simple form submission in ReactJS - NodeJS - MongoDB - Docker</p>
+
+        <p class="view"><a href="https://github.com/kapekost/simple-react-form">View the Project on GitHub <small>kapekost/simple-react-form</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/kapekost/simple-react-form/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/kapekost/simple-react-form/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/kapekost/simple-react-form">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="simple-form-submission-in-reactjs-nodejs-and-mongo-db-with-docker" class="anchor" href="#simple-form-submission-in-reactjs-nodejs-and-mongo-db-with-docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simple form submission in ReactJS, NodeJS and Mongo DB with Docker</h1>
+<p>2 Tabs Single page application</p>
+<p>Page one</p>
+<ul>
+<li>Basic form to submit data to the database.</li>
+<li>saved by email as index key</li>
+</ul>
+<p>Page two</p>
+<ul>
+<li>A list of previously answered questions grouped by a respondents email address
+The questions can be anything you wish to ask.</li>
+</ul>
+<h2>
+<a id="development" class="anchor" href="#development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development</h2>
+<pre><code>docker-compose up
+</code></pre>
+<p>this should bring up 3 containers,</p>
+<ul>
+<li>
+<p>NodeJS service</p>
+</li>
+<li>
+<p>ReactJS client</p>
+</li>
+<li>
+<p>mongodb server</p>
+</li>
+<li>
+<p>node server on <a href="http://localhost:8080">http://localhost:8080</a></p>
+</li>
+<li>
+<p>react development server on <a href="http://localhost:3000/public">http://localhost:3000/public</a></p>
+</li>
+</ul>
+<p>The docker-compose</p>
+<ul>
+<li>will create the volumes needed for the database storage</li>
+<li>expose ports for mongodb and use a docker-network to allow the node service connection.</li>
+<li>expose ports for debugging</li>
+<li>allow you to use React Dev Server</li>
+<li>allow you to use Nodemon for nodejs dev</li>
+</ul>
+<p>### alternatively, <code>without Docker</code>, you can start the projects within their directory with common node / yarn
+[REQUIRES mongo DB default installation and root password as shown below]</p>
+<pre><code>MONGO_INITDB_ROOT_USERNAME=root
+MONGO_INITDB_ROOT_PASSWORD=m0ng0passw
+</code></pre>
+<p>in each project</p>
+<pre><code>yarn install
+yarn start
+</code></pre>
+<ul>
+<li>navigate with the browser to <a href="http://localhost:8080/public/index.html">http://localhost:8080/public/index.html</a>
+</li>
+</ul>
+<h2>
+<a id="production-build" class="anchor" href="#production-build" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Production build</h2>
+<h3>
+<a id="with-docker" class="anchor" href="#with-docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>with Docker</h3>
+<pre><code>docker-compose -f docker-compose.production.yml build --force-rm
+docker-compose -f docker-compose.production.yml up
+</code></pre>
+<ul>
+<li>navigate with the browser to <a href="http://localhost:8080/public/index.html">http://localhost:8080/public/index.html</a>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/kapekost">kapekost</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
